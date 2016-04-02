@@ -16,7 +16,8 @@ inherit kernel
 LOCALVERSION ?= "+caf"
 SCMVERSION ?= "y"
 
-SRC_URI = "git://codeaurora.org/quic/la/kernel/msm.git;branch=${SRCBRANCH}"
+SRC_URI = "git://codeaurora.org/kernel/msm.git;branch=${SRCBRANCH}"
+#SRC_URI = "git://codeaurora.org/quic/lx/qr-linux/build;branch=${SRCBRANCH}""
 #SRC_URI = "git:///local2/mnt/workspace/linaro-oe/oe-qcom/sources/meta-atlflight/recipes-kernel/linux/tmp/msm;protocol=file;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"

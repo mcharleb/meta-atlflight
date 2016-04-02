@@ -6,5 +6,5 @@ require recipes-kernel/linux/linux-caf.inc
 SRC_URI += "file://defconfig"
 
 COMPATIBLE_MACHINE = "eagle"
-SRCBRANCH = "v4.2.6"
-SRCREV = "AU_LINUX_ANDROID_KK_2.7_RB1.04.04.02.007.041"
+SRCBRANCH = "kk_2.7"
+SRCREV = "dd82ae6173b15a340cfa9beedfa8e75ee0ecd58e"
