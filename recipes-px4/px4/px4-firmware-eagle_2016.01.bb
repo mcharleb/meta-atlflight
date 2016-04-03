@@ -5,7 +5,7 @@ SECTION = "console/network"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=868b4eea242622c0f210eb9a2c13f6d5"
 
-#DEPENDS = "zlib"
+DEPENDS = "cmake-native python-argparse-native"
 
 FILES_${PN} = "/home/linaro"
 
