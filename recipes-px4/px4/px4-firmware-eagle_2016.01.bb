@@ -14,7 +14,7 @@ FILES_${PN}-adsp = "/usr/share/data/adsp"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 
-SRCREV = "2f057939ad1b0247b9191957a0d948bcae243db5"
+SRCREV = "master"
 SRC_URI = "git://github.com/PX4/Firmware.git \
 	  "
 
@@ -39,9 +39,9 @@ do_configure() {
 
 do_compile() {
 	# Set Hexagon SDK location to default install location
-	export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
-	export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
-	export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0/sysroot
+	export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
+	export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/3.0
+	export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v3.1.1_sysroot
 
 	# build apps proc binary
 	make posix_eagle_default
@@ -58,11 +58,11 @@ do_compile() {
 do_install() {
 	# apps_proc binaries
 	install -d ${D}/home/linaro 
-	install -m 0755 ${S}/build_posix_eagle_default/src/firmware/posix/mainapp ${D}/home/linaro
+	install -m 0755 ${S}/build_posix_eagle_default/src/firmware/posix/px4 ${D}/home/linaro
 
 	# adsp_proc libs
 	install -d ${D}/usr/share/data/adsp
-	install -m 0755 ${S}/build_qurt_eagle_default/src/firmware/qurt/libmainapp.so ${D}/usr/share/data/adsp
+	install -m 0755 ${S}/build_qurt_eagle_default/src/firmware/qurt/libpx4.so ${D}/usr/share/data/adsp
 	install -m 0755 ${S}/build_qurt_eagle_default/src/firmware/qurt/libpx4muorb_skel.so ${D}/usr/share/data/adsp
 }
 
